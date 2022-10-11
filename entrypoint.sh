@@ -54,10 +54,6 @@ fi
 echo '::endgroup::'
 
 
-echo "NEW TEST STUFF"
-ls /github/workspace/real-markets/.sqlfluff_config/
-echo "END TEST STUFF"
-
 # Lint changed files if the mode is lint
 if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   echo '::group:: Running sqlfluff 🐶 ...'
@@ -71,6 +67,7 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
     $(if [[ "x${SQLFLUFF_DIALECT}" != "x" ]]; then echo "--dialect ${SQLFLUFF_DIALECT}"; fi) \
     $(if [[ "x${SQLFLUFF_PROCESSES}" != "x" ]]; then echo "--processes ${SQLFLUFF_PROCESSES}"; fi) \
     $(if [[ "x${SQLFLUFF_RULES}" != "x" ]]; then echo "--rules ${SQLFLUFF_RULES}"; fi) \
+    $(if [[ "x${SQLFLUFF_PROFILE_DIR}" != "x" ]]; then echo "--profiles-dir ${SQLFLUFF_PROFILE_DIR}"; fi) \    
     $(if [[ "x${SQLFLUFF_EXCLUDE_RULES}" != "x" ]]; then echo "--exclude-rules ${SQLFLUFF_EXCLUDE_RULES}"; fi) \
     $(if [[ "x${SQLFLUFF_TEMPLATER}" != "x" ]]; then echo "--templater ${SQLFLUFF_TEMPLATER}"; fi) \
     $(if [[ "x${SQLFLUFF_DISABLE_NOQA}" != "x" ]]; then echo "--disable-noqa ${SQLFLUFF_DISABLE_NOQA}"; fi) \
