@@ -53,6 +53,13 @@ if [[ -f "${INPUT_WORKING_DIRECTORY}/packages.yml" ]]; then
 fi
 echo '::endgroup::'
 
+echo "MORE TESTING"
+ pwd
+ ls .
+ echo "${DBT_PROFILE_DIR}"
+ echo "${SQLFLUFF_CONFIG}" 
+ echo "ENDING TESTING"
+
 # Lint changed files if the mode is lint
 if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   echo '::group:: Running sqlfluff 🐶 ...'
