@@ -153,6 +153,9 @@ inputs:
   PROFILES_YML_BIGQUERY_TOKEN_URI: 
     required: true
     default: ''  
+  SQLFLUFF_PROFILE_DIR:
+    required: true
+    default: ''
 
 
 outputs:
@@ -205,6 +208,7 @@ runs:
     PROFILES_YML_BIGQUERY_PRIVATE_KEY: ${{ inputs.PROFILES_YML_BIGQUERY_PRIVATE_KEY }}
     PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID: ${{ inputs.PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID }}
     PROFILES_YML_BIGQUERY_TOKEN_URI: ${{ inputs.PROFILES_YML_BIGQUERY_TOKEN_URI }}
+    SQLFLUFF_PROFILE_DIR: ${{ inputs.SQLFLUFF_PROFILE_DIR }}
 
 # Ref: https://haya14busa.github.io/github-action-brandings/
 branding:
