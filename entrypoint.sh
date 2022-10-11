@@ -56,7 +56,7 @@ echo '::endgroup::'
 echo "MORE TESTING"
 pwd
 ls .
-echo "$DBT_PROFILE_DIR"
+echo "${DBT_PROFILE_DIR}"
 echo "${SQLFLUFF_CONFIG}" 
 echo "ENDING TESTING"
 
