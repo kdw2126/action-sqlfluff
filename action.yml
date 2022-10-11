@@ -129,7 +129,31 @@ inputs:
       A path to your custom `requirements.txt` to install extra modules for your dbt adapters.
       Please make sure not to contain `sqlfluff` and its dependent packages, because the action can be broken by the conflicts.
     required: false
-    default: ''
+  PROFILES_YML_BIGQUERY_AUTH_PROVIDER_CERT_URL:
+    required: true
+    default: ''    
+  PROFILES_YML_BIGQUERY_AUTH_URI:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_CLIENT_CERT_URL:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_CLIENT_EMAIL:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_CLIENT_ID:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_PRIVATE_KEY:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID:
+    required: true
+    default: ''  
+  PROFILES_YML_BIGQUERY_TOKEN_URI: 
+    required: true
+    default: ''  
+
 
 outputs:
   sqlfluff-results:
@@ -173,14 +197,14 @@ runs:
     SQLFLUFF_DIALECT: ${{ inputs.dialect }}
     GITHUB_PULL_REQUEST_BASE_REF: ${{ inputs.github_base_ref }}
     FILE_PATTERN: ${{ inputs.file_pattern }}
-    PROFILES_YML_BIGQUERY_AUTH_PROVIDER_CERT_URL: ${{ secrets.PROFILES_YML_BIGQUERY_AUTH_PROVIDER_CERT_URL }}
-    PROFILES_YML_BIGQUERY_AUTH_URI: ${{ secrets.PROFILES_YML_BIGQUERY_AUTH_URI }}
-    PROFILES_YML_BIGQUERY_CLIENT_CERT_URL: ${{ secrets.PROFILES_YML_BIGQUERY_CLIENT_CERT_URL }}
-    PROFILES_YML_BIGQUERY_CLIENT_EMAIL: ${{ secrets.PROFILES_YML_BIGQUERY_CLIENT_EMAIL }}
-    PROFILES_YML_BIGQUERY_CLIENT_ID: ${{ secrets.PROFILES_YML_BIGQUERY_CLIENT_ID }}
-    PROFILES_YML_BIGQUERY_PRIVATE_KEY: ${{ secrets.PROFILES_YML_BIGQUERY_PRIVATE_KEY }}
-    PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID: ${{ secrets.PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID }}
-    PROFILES_YML_BIGQUERY_TOKEN_URI: ${{ secrets.PROFILES_YML_BIGQUERY_TOKEN_URI }}
+    PROFILES_YML_BIGQUERY_AUTH_PROVIDER_CERT_URL: ${{ inputs.PROFILES_YML_BIGQUERY_AUTH_PROVIDER_CERT_URL }}
+    PROFILES_YML_BIGQUERY_AUTH_URI: ${{ inputs.PROFILES_YML_BIGQUERY_AUTH_URI }}
+    PROFILES_YML_BIGQUERY_CLIENT_CERT_URL: ${{ inputs.PROFILES_YML_BIGQUERY_CLIENT_CERT_URL }}
+    PROFILES_YML_BIGQUERY_CLIENT_EMAIL: ${{ inputs.PROFILES_YML_BIGQUERY_CLIENT_EMAIL }}
+    PROFILES_YML_BIGQUERY_CLIENT_ID: ${{ inputs.PROFILES_YML_BIGQUERY_CLIENT_ID }}
+    PROFILES_YML_BIGQUERY_PRIVATE_KEY: ${{ inputs.PROFILES_YML_BIGQUERY_PRIVATE_KEY }}
+    PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID: ${{ inputs.PROFILES_YML_BIGQUERY_PRIVATE_KEY_ID }}
+    PROFILES_YML_BIGQUERY_TOKEN_URI: ${{ inputs.PROFILES_YML_BIGQUERY_TOKEN_URI }}
 
 # Ref: https://haya14busa.github.io/github-action-brandings/
 branding:
