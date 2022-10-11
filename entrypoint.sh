@@ -55,7 +55,7 @@ echo '::endgroup::'
 
 
 echo "NEW TEST STUFF"
-echo ${SQLFLUFF_CONFIG}
+ls /github/workspace/real-markets/.sqlfluff_config/
 echo "END TEST STUFF"
 
 # Lint changed files if the mode is lint
