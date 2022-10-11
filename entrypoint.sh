@@ -17,7 +17,7 @@ echo "${SQLFLUFF_PATHS:?}"
 echo "\n"
 changed_files=$(git diff --relative=real-markets --name-only --no-color "$SOURCE_REFERENCE" "HEAD" -- "${SQLFLUFF_PATHS:?}" |
   grep -e "${SQL_FILE_PATTERN:?}" |
-  xargs -I% bash -c 'if [[ -f "%" ]] ; then echo "%"; fi' || :)
+  xargs -I% bash -c 'if [[ -f "real-markets/%" ]] ; then echo "%"; fi' || :)
 echo "Changed files:"
 echo "$changed_files"
 # Halt the job
