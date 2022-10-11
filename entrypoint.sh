@@ -56,7 +56,9 @@ echo '::endgroup::'
 echo "MORE TESTING"
 pwd
 ls .
-echo "${SQLFLUFF_CONFIG} -- ENDING TESTING"
+echo "$DBT_PROFILE_DIR"
+echo "${SQLFLUFF_CONFIG}" 
+echo "ENDING TESTING"
 
 
 # Lint changed files if the mode is lint
