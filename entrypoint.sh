@@ -87,6 +87,10 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   echo '::group:: Running reviewdog 🐶 ...'
   # Allow failures now, as reviewdog handles them
   set +Eeuo pipefail
+  
+  echo "\n"
+  cat <"$lint_results" 
+  echo "\n
 
   lint_results_rdjson="sqlfluff-lint.rdjson"
   cat <"$lint_results" |
