@@ -63,7 +63,7 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   # Allow failures now, as reviewdog handles them
   set +Eeuo pipefail
   lint_results="sqlfluff-lint.json"
-  dbt compile
+  dbt compile --select $changed_files
   # shellcheck disable=SC2086,SC2046
   sqlfluff lint \
     --format json \
