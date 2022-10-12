@@ -78,12 +78,12 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   sqlfluff_exit_code=$?
   cat $lint_results
   
+  echo "::set-output name=sqlfluff-results::$(cat <"$lint_results" | jq -r -c '.')" # Convert to a single line
   echo "::set-output name=sqlfluff-exit-code::${sqlfluff_exit_code}"  
 
   set -Eeuo pipefail
   echo '::endgroup::'
 
-  echo "::set-output name=sqlfluff-results::$(cat <"$lint_results" | jq -r -c '.')" # Convert to a single line
   echo '::group:: Running reviewdog 🐶 ...'
   # Allow failures now, as reviewdog handles them
   set +Eeuo pipefail
