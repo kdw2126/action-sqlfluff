@@ -90,7 +90,7 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   
   echo "\n"
   cat <"$lint_results" 
-  echo "\n
+  echo "\n"
 
   lint_results_rdjson="sqlfluff-lint.rdjson"
   cat <"$lint_results" |
