@@ -77,9 +77,9 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
     $changed_files >> "$lint_results"
   
   sqlfluff_exit_code=$?
-  cat "$lint_results"
+  cat $lint_results
   
-  echo "::set-output name=sqlfluff-results::$(cat <"$lint_results" | jq -r -c '.')" # Convert to a single line
+  echo "::set-output name=sqlfluff-results::$(cat <$lint_results | jq -r -c '.')" # Convert to a single line
   echo "::set-output name=sqlfluff-exit-code::${sqlfluff_exit_code}"
 
   set -Eeuo pipefail
