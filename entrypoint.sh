@@ -63,6 +63,7 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   # Allow failures now, as reviewdog handles them
   set +Eeuo pipefail
   lint_results="sqlfluff-lint.json"
+  dbt compile
   # shellcheck disable=SC2086,SC2046
   sqlfluff lint \
     --format json \
@@ -87,10 +88,6 @@ if [[ "${SQLFLUFF_COMMAND:?}" == "lint" ]]; then
   echo '::group:: Running reviewdog 🐶 ...'
   # Allow failures now, as reviewdog handles them
   set +Eeuo pipefail
-  
-  echo "\n"
-  cat <"$lint_results" 
-  echo "\n"
 
   lint_results_rdjson="sqlfluff-lint.rdjson"
   cat <"$lint_results" |
